@@ -37,6 +37,8 @@
             letterTrack = [],
             bandNames = ["madona","police","blondie"],
             counter = 0,
+            i = 0,
+        
 
         // define variables to direct text
 
@@ -61,22 +63,20 @@
             //     "six" : "A"         
             // }
             
-            // // pick first band in the array
-            var currentBandName = bandNames[];
 
-        // start the game by pressing the key
-       
-       
+      // pick first band in the array
+                // var currentBandName 
+                // var currentBandName = bandNames[i++];
+
         // when user press any key
             document.onkeypress = function(event) {
                 var userGuess = event.key
 
         // var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)]
+                // var currentBandName
 
-        // console.log(computerGuess)
-// // pick first band in the array
-                var currentBandName = bandNames[++];
-
+       // pick first band in the array
+                var currentBandName = bandNames[i];
 
         // push the value in the array
                 letterTrack.push(userGuess);
@@ -108,8 +108,9 @@
                  
                 } else {
                     guessLeft--
+
                 }
-                if (counter === 6){
+                if (counter === currentBandName.length){
                    wins++
                    letterTrack = []
                    first.textContent = "_ ";
@@ -120,6 +121,8 @@
                    sixth.textContent = "_";
 
                    counter = 0
+                   
+                   i++
                 
                 }
                    
