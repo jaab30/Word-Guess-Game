@@ -41,7 +41,6 @@
             i = 0,
             initialWord = ["_","_","_","_","_","_","_"],
             
-        
 
         // define variables to direct text
 
@@ -63,7 +62,7 @@
                 var guessWord = bandNames[i];
 
         // push the value in the array
-                        letterTrack.push(userGuess);
+                    letterTrack.push(userGuess);
                
         // var length for loop
                 var guessWordL = guessWord.length
@@ -84,15 +83,16 @@
                     guessLeft--
                 }
         // reset when complete a word
-                if (counter >= 7){
+                if (bandNames.indexOf(initialWord.join('')) !== -1){
                     wins++
                     letterTrack = []
-                    counter = 0
+                    counter = 0 
                     guessLeft = 12
                     i++
                     initialWord = ["_","_","_","_","_","_","_"],
                     word.textContent = initialWord.join(' ');
                 }
+
         //game over 
                 if (guessLeft === 0){
                     var resetGame = confirm("Game Over...! Would you like to play again..?");
