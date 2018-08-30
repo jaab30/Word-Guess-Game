@@ -47,25 +47,51 @@
 
             winsText = document.getElementById("wins-text"),
             guessesLeftText = document.getElementById("guessesLeft-text"),
-            letterGuessedText = document.getElementById("lettersGuessed-text")
+            letterGuessedText = document.getElementById("lettersGuessed-text"),
+            word = document.getElementById("word"),
+            second = document.getElementById("2"),
+            third = document.getElementById("3"),
+            fourth = document.getElementById("4"),
+            fifth = document.getElementById("5"),
+            sixth = document.getElementById("6")
+
+        // variables for the words
+
+            // madona = {
+            //     "one" : "M",
+            //     "two" : "A",
+            //     "three" : "D",
+            //     "four" : "O",
+            //     "five" : "N",
+            //     "six" : "A"         
+            // }
+            
+
+      // pick first band in the array
+                // var currentBandName 
+                // var currentBandName = bandNames[i++];
 
                 
         // var guessWord = bandNames[Math.floor(Math.random() * bandNames.length)]
-            // var guessWord = bandNames[i];
+            var guessWord = bandNames[i];
 
         word.textContent = initialWord.join(' ');
+
+        
 
         // when user press any key
             document.onkeypress = function(event) {
                 var userGuess = event.key.toLowerCase();
 
+        // var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)]
+                // var currentBandName
+
        // pick first band in the array
                 var guessWord = bandNames[i];
 
         // push the value in the array
-                        letterTrack.push(userGuess);
-               
-        // var length for loop
+                letterTrack.push(userGuess);
+
                 var guessWordL = guessWord.length
 
         // guess right letters
@@ -79,11 +105,11 @@
                     counter++
                     } 
                 } 
-        // guess wrong letters
+                
                 if (initialWord.indexOf(userGuess) === -1)  {
                     guessLeft--
                 }
-        // reset when complete a word
+
                 if (counter >= 7){
                     wins++
                     letterTrack = []
@@ -93,7 +119,7 @@
                     initialWord = ["_","_","_","_","_","_","_"],
                     word.textContent = initialWord.join(' ');
                 }
-        //game over 
+
                 if (guessLeft === 0){
                     var resetGame = confirm("Game Over...! Would you like to play again..?");
                     if (resetGame) {
@@ -104,12 +130,63 @@
                     }
                 }
 
+                // if (userGuess === guessWord.charAt(0)) {
+                //     word.textContent = guessWord.charAt(0);
+                //     // counter++
+                    
+                // } else if (userGuess === guessWord.charAt(1)) {
+                //     second.textContent = guessWord.charAt(1);
+                //     // counter++
+
+                // } else if (userGuess === guessWord.charAt(2)) {
+                //     third.textContent = guessWord.charAt(2);
+                //     // counter++               
+                    
+                // } else if (userGuess === guessWord.charAt(3)) {
+                //     fourth.textContent = guessWord.charAt(3);
+                //     // counter++
+                    
+                // } else if (userGuess === guessWord.charAt(4)) {
+                //     fifth.textContent = guessWord.charAt(4);
+                //     // counter++
+                    
+                // } else if (userGuess === guessWord.charAt(5)) {
+                //     sixth.textContent = guessWord.charAt(5);
+                //     // counter++
+                 
+                // } else {
+                //     guessLeft--
+
+                // }
+                // if (guessWord === guessWord.length){
+                //    wins++
+                //    letterTrack = []
+                //    first.textContent = "_ ";
+                //    second.textContent = "_ ";
+                //    third.textContent = "_ ";
+                //    fourth.textContent = "_ ";
+                //    fifth.textContent = "_ ";
+                //    sixth.textContent = "_";
+
+                // //    counter = 0
+                   
+                //    i++
+                
+                // }
+                   
+        //         }
+                // if (guessLeft === 0){
+                //     guessLeft = 12;
+                //     letterTrack = [];
+           
+
                 // display results
              winsText.textContent =  wins;
              guessesLeftText.textContent = guessLeft;
-             letterGuessedText.textContent = letterTrack.join(' ');
+             letterGuessedText.textContent = letterTrack;
 
             }
+
 
 
     </script>
