@@ -53,6 +53,7 @@
             // var guessWord = bandNames[i];
 
         word.textContent = initialWord.join(' ');
+        i = Math.floor(Math.random() * 9) + 1;
 
         // when user press any key
             document.onkeypress = function(event) {
@@ -65,7 +66,7 @@
                     letterTrack.push(userGuess);
                
         // var length for loop
-                var guessWordL = guessWord.length
+                var guessWordL = guessWord.length;
 
         // guess right letters
         
@@ -88,9 +89,9 @@
                     letterTrack = []
                     counter = 0 
                     guessLeft = 12
-                    i++
                     initialWord = ["_","_","_","_","_","_","_"],
                     word.textContent = initialWord.join(' ');
+                    i = Math.floor(Math.random() * 9) + 1;
                 }
 
         //game over 

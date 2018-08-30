@@ -29,7 +29,7 @@
 
 
     <script>
-
+<!-- 
         //  define variable and set scores
         var wins = 0,
             losses = 0,
@@ -48,37 +48,37 @@
             letterGuessedText = document.getElementById("lettersGuessed-text"),
             wordText = document.getElementById("word")
 
-        // pick ramdon word
-        var guessWord = bandNames[Math.floor(Math.random() * bandNames.length)];
+//         // pick ramdon word
+//         var guessWord = bandNames[Math.floor(Math.random() * bandNames.length)];
 
-        // when user press any key
-            document.onkeypress = function(event) {
-                var userGuess = event.key.toLowerCase();
+//         // when user press any key
+//             document.onkeypress = function(event) {
+//                 var userGuess = event.key.toLowerCase();
     
                  
 
-        var lettersGuessed = [];
-
-        letterGuessed.push(userGuess);
+// //         var lettersGuessed = [];
 
 
-                for (var i = 0; i < guessWord.length; i++) {
-                    lettersGuessed[i] = "_";
-                    wordText.textContent = "" + lettersGuessed;
 
-                }
+//                 for (var i = 0; i < guessWord.length; i++) {
+//                     lettersGuessed[i] = "_";
+//                     wordText.textContent = "" + lettersGuessed;
+
+//                 }
                 
-                for (var j = 0; j < guessWord.length; j++) {
-                        if (guessWord[j] === userGuess) {
-                        lettersGuessed[j] = userGuess;
-                        wordText.textContent = lettersGuessed;
-                        }                    
-                    }
- }
+//                 for (var j = 0; j < guessWord.length; j++) {
+//                         if (guessWord[j] === userGuess) {
+//                         lettersGuessed[j] = userGuess;
+//                         wordText.textContent = lettersGuessed;
+//                         }                    
+//                     }
+//  }
+//  -->
 
 
-
-
+var i = Math.floor(Math.random() * 9) + 1;
+alert(i)
 
 
       
