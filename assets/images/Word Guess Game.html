@@ -1,0 +1,156 @@
+<!DOCTYPE <!doctype>
+<!-- saved from url=(0077)file:///D:/Jorge/UCF/bootCamp/Homeworks/homework-3/Word-Guess-Game/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Word Guess Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./Word Guess Game_files/reset.css">
+    <link href="./Word Guess Game_files/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./Word Guess Game_files/style.css">
+    
+    
+</head>
+<body>
+    <header>
+        <h1> HANGMAN </h1>
+        <h2>Rock Band Edition</h2>
+    </header>
+    <main>
+        <div class="container">
+            <aside class="banner">
+                <!-- <img src="assets/images/banner2.png" alt="Rock Banner"> -->
+            </aside>
+            <div class="press-key"><h3> Press Any Key to get Started..! </h3> 
+            </div>
+
+            <section> <span id="word">_ _ _ _ _ _ _</span> 
+            </section>
+            
+            <aside class="bandinfobanner">
+                    <!-- <div class="photoband">
+                        <p></p>
+    
+    
+                    </div>
+                    <div class="bioband">
+    
+    
+                    </div> -->
+    
+                </aside>
+
+            
+        
+            
+    
+            <div class="tally">
+                <div class="winsDiv">
+                    <p class="winsText">Wins</p>
+                    <p id="wins-text" class="wins"></p>
+                </div>
+                <div class="missedDiv">
+                    <p class="missedText">Number of Guesses remaining:</p>
+                    <p id="guessesLeft-text" class="missed"></p>
+                </div>
+            </div>
+            <div class="lettersGuessedDiv">  
+                <p>Letters already guessed:</p>
+                <p id="lettersGuessed-text" class="guessed"></p>
+            </div>
+
+           
+        </div>
+    </main>     
+    <footer>
+
+    </footer>
+
+    <script>
+
+        //  define variable and set scores
+        var wins = 0,
+            losses = 0,
+            guessLeft = 12,
+            letterTrack = [],
+            // wordLetterGuessed = [],
+            bandNames = ["journey","ramones","nirvana","wailers","chicago","beatles","bangles","madonna","genesis","blondie"],
+            counter = 0,
+            i = 0,
+            initialWord = ["_","_","_","_","_","_","_"],
+            
+
+        // define variables to direct text
+
+            winsText = document.getElementById("wins-text"),
+            guessesLeftText = document.getElementById("guessesLeft-text"),
+            letterGuessedText = document.getElementById("lettersGuessed-text")
+
+                
+        // var guessWord = bandNames[Math.floor(Math.random() * bandNames.length)]
+            // var guessWord = bandNames[i];
+
+        word.textContent = initialWord.join(' ');
+        i = Math.floor(Math.random() * 9) + 1;
+
+        // when user press any key
+            document.onkeypress = function(event) {
+                var userGuess = event.key.toLowerCase();
+
+       // pick first band in the array
+                var guessWord = bandNames[i];
+
+        // push the value in the array
+                    letterTrack.push(userGuess);
+               
+        // var length for loop
+                var guessWordL = guessWord.length;
+
+        // guess right letters
+        
+                for (var j = 0; j < guessWordL; j++) {
+                    if (userGuess === guessWord.charAt(j)) {
+                    // lettersGuessed[j] = userGuess;
+                    initialWord[j]=guessWord.charAt(j);
+                    // console.log(initialWord);
+                    word.textContent = initialWord.join(' ');
+                    counter++
+                    } 
+                } 
+        // guess wrong letters
+                if (initialWord.indexOf(userGuess) === -1)  {
+                    guessLeft--
+                }
+        // reset when complete a word
+                if (bandNames.indexOf(initialWord.join('')) !== -1){
+                    wins++
+                    letterTrack = []
+                    counter = 0 
+                    guessLeft = 12
+                    initialWord = ["_","_","_","_","_","_","_"],
+                    word.textContent = initialWord.join(' ');
+                    i = Math.floor(Math.random() * 9) + 1;
+                }
+
+        //game over 
+                if (guessLeft === 0){
+                    var resetGame = confirm("Game Over...! Would you like to play again..?");
+                    if (resetGame) {
+                        location.reload();
+                    } else {
+                        alert("Good Bye...!")
+                        location.reload();
+                    }
+                }
+
+                // display results
+             winsText.textContent =  wins;
+             guessesLeftText.textContent = guessLeft;
+             letterGuessedText.textContent = letterTrack.join(' ');
+
+            }
+
+
+    </script>
+
+</body></html>

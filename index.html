@@ -4,29 +4,85 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Word Guess Game</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Acme|Baloo+Thambi|Bangers|Bungee+Inline" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-    
+
 </head>
 <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <header>
+                        <h1> HANGMAN </h1>
+                        <h2>Rock Band Edition</h2>
+                    </header>
+                </div>
+            </div>
+            
+    <main>
+            <div class="row">
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-8 fluid container-main">
+                        <div class="row">
+                            <div class="col-sm-3 banner">
+                                    <img src="assets/images/banner2.png" alt="Rock Banner">
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="row">
+                                    <div class="col-sm-12 press-key">
+                                        <h3 id="intro"> Press Any Key to get Started..! </h3>
+                                        <div class="word"><span id="word"></span></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="winsDiv">
+                                                <p class= "winsText">Wins</p>
+                                                <p id="wins-text" class="wins"></p>
+                                        </div>
+                                        <div class="missedDiv">
+                                            <p class="missedText">Guesses remaining:</p>
+                                            <p id="guessesLeft-text" class="missed"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="lettersGuessedDiv">  
+                                            <p class="guessedText">Letters guessed:</p>
+                                            <p id="lettersGuessed-text" class="guessed"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 bandinfobanner">
+                                <div>
+                                    <div class="photoband">
+                                            <img id="bandinsertphoto" src="assets/images/banner2.png" alt="Rock Banner">
+                                    </div>
+                                <div id="textband" class="bioband">
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                    </div>
+            </div>
 
-    <h1> Press Any Key to get Started..! </h1>
-    <div>
 
-        <p>Wins</p>
-        <p id="wins-text"></p>
-        <br>
-        <span id="word"></span>
-        <br>
-        <p>Number of Guesses remaining:</p>
-        <p id="guessesLeft-text"></p>
-        <br>
-        <p>Letters already guessed:</p>
-        <p id="lettersGuessed-text"></p>
 
-    </div>
 
+
+
+                
+        </div>
+    </main>     
+    <footer>
+
+    </footer>
 
     <script>
 
@@ -36,63 +92,111 @@
             guessLeft = 12,
             letterTrack = [],
             // wordLetterGuessed = [],
-            bandNames = ["journey","ramones","nirvana","wailers","chicago","beatles","bangles","madonna","genesis","blondie"],
+            bandNames = ["journey","ramones","nirvana","wailers","chicago","beatles","bangles","poison","the police","eagles"],
             counter = 0,
             i = 0,
-            initialWord = ["_","_","_","_","_","_","_"],
+            // initialWord = ["_","_","_","_","_","_","_"],
+            initialWord = [],
             
 
         // define variables to direct text
 
             winsText = document.getElementById("wins-text"),
             guessesLeftText = document.getElementById("guessesLeft-text"),
-            letterGuessedText = document.getElementById("lettersGuessed-text")
+            letterGuessedText = document.getElementById("lettersGuessed-text"),
+            introText = document.getElementById("intro"),
+            bandbioText = document.getElementById("textband"),
 
-                
+            //audio playback
+            journey = new Audio(src="assets/audio/billy.mp3")
+
+
+       // pick first band in the array
+       var guessWord = bandNames[i];
+
+         // var length for loop
+         var guessWordL = guessWord.length;
+
+        // breate dashes
+            for (var k = 0; k < guessWordL; k++) {
+            initialWord[k] = "_ ";
+            word.textContent = initialWord.join(' ');
+            } 
+
         // var guessWord = bandNames[Math.floor(Math.random() * bandNames.length)]
             // var guessWord = bandNames[i];
 
-        word.textContent = initialWord.join(' ');
-        i = Math.floor(Math.random() * 9) + 1;
+            word.textContent = initialWord.join(' ');
+        // i = Math.floor(Math.random() * 9) + 1;
 
         // when user press any key
             document.onkeypress = function(event) {
-                var userGuess = event.key.toLowerCase();
+            var userGuess = event.key.toLowerCase();
+
+        // hide the directions
+            introText.textContent = "Rock & Roll...!!";
 
        // pick first band in the array
-                var guessWord = bandNames[i];
+            var guessWord = bandNames[i];
 
         // push the value in the array
-                    letterTrack.push(userGuess);
+            letterTrack.push(userGuess);
                
         // var length for loop
-                var guessWordL = guessWord.length;
+            var guessWordL = guessWord.length;
 
         // guess right letters
-        
+            
                 for (var j = 0; j < guessWordL; j++) {
                     if (userGuess === guessWord.charAt(j)) {
                     // lettersGuessed[j] = userGuess;
                     initialWord[j]=guessWord.charAt(j);
                     // console.log(initialWord);
                     word.textContent = initialWord.join(' ');
-                    counter++
                     } 
                 } 
         // guess wrong letters
                 if (initialWord.indexOf(userGuess) === -1)  {
                     guessLeft--
                 }
+
+                if (initialWord.join('') === bandNames[0]){
+                        function playAudio() { 
+                        journey.play(); 
+                        } 
+                        playAudio()
+                       
+
+                        function ReplacingImage(){
+                        document.getElementById("bandinsertphoto").src="assets/images/journey.jpg"
+                        }
+                        ReplacingImage()
+
+                        introText.textContent = "Great Band..! Keep playing..?";
+                        bandbioText.textContent = "Journey -  \"Separate Ways\"";
+
+                }
+
         // reset when complete a word
                 if (bandNames.indexOf(initialWord.join('')) !== -1){
                     wins++
                     letterTrack = []
-                    counter = 0 
                     guessLeft = 12
-                    initialWord = ["_","_","_","_","_","_","_"],
+                    initialWord = [],
+                    i = Math.floor(Math.random() * 9) + 1; 
+                    var guessWord = bandNames[i];
+                    var guessWordL = guessWord.length;
+                   
+                for (var k = 0; k < guessWordL; k++) {
+                    initialWord[k] = "_ ";
                     word.textContent = initialWord.join(' ');
-                    i = Math.floor(Math.random() * 9) + 1;
+                    } 
+
+                // word.textContent = initialWord.join(' ');
                 }
+
+                
+                
 
         //game over 
                 if (guessLeft === 0){
@@ -114,5 +218,9 @@
 
 
     </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>
