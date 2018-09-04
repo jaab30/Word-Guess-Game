@@ -71,12 +71,6 @@
                     <div class="col-sm-2">
                     </div>
             </div>
-
-
-
-
-
-
                 
         </div>
     </main>     
@@ -119,10 +113,27 @@
             cars = new Audio(src="assets/audio/cars.mp3"),
             eagles = new Audio(src="assets/audio/eagles.mp3")
 
+            // images
+
+            // journeyImg = new Image(src="assets/images/weezer1.jpg")
+            // weezer = new Audio(src="assets/audio/weezer.mp3"),
+            // queen = new Audio(src="assets/audio/queen.mp3"),
+            // acdc = new Audio(src="assets/audio/acdc.mp3"),
+            // chicago = new Audio(src="assets/audio/chicago.mp3"),
+            // beatles = new Audio(src="assets/audio/beatles.mp3"),
+            // kiss = new Audio(src="assets/audio/kiss.mp3"),
+            // poison = new Audio(src="assets/audio/poison.mp3"),
+            // cars = new Audio(src="assets/audio/cars.mp3"),
+            // eagles = new Audio(src="assets/audio/eagles.mp3")
+
+
+
+
+
         //  Song Ramdomnizer
             //  i = Math.floor(Math.random() * 9) + 1;
        // pick first band in the array
-       var guessWord = bandNames[i];
+        var guessWord = bandNames[i];
 
          // var length for loop
          var guessWordL = guessWord.length;
@@ -136,7 +147,7 @@
         // var guessWord = bandNames[Math.floor(Math.random() * bandNames.length)]
             // var guessWord = bandNames[i];
 
-            word.textContent = initialWord.join(' ');
+            // word.textContent = initialWord.join(' ');
 
         // when user press any key
             document.onkeypress = function(event) {
@@ -150,7 +161,7 @@
 
         // push the value in the array
             letterTrack.push(userGuess);
-               
+                
         // var length for loop
             var guessWordL = guessWord.length;
 
@@ -171,18 +182,29 @@
                     guessLeft--
                 }
 
-                // Bands Info
-                if (initialWord.join('') === bandNames[0]){
-                        function pauseAudio() {
+
+        // plays audio
+                function playAudio(x) { 
+                    x.play(); 
+                    }
+
+        // pause audio when new audio is played
+                function pauseAudio() {
                         journey.pause(); weezer.pause();queen.pause(); acdc.pause(); chicago.pause();beatles.pause(); kiss.pause(); poison.pause(); eagles.pause(); cars.pause();
                         } 
-                        pauseAudio()
                         
-                        function playAudio() { 
-                        journey.play(); 
-                        } 
-                        playAudio()
+        // display band images
+                        // function ReplacingImage(x){
+                        // document.getElementById("bandinsertphoto").x
+                        // }
+                        
+
+                // Bands Info
+                if (initialWord.join('') === bandNames[0]){
                        
+                        pauseAudio();
+                        playAudio(journey);
+
                         function ReplacingImage(){
                         document.getElementById("bandinsertphoto").src="assets/images/journey1.jpg"
                         }
@@ -192,15 +214,9 @@
                         bandbioText.textContent = "Journey -  \"Separate Ways\"";
                 }
                 if (initialWord.join('') === bandNames[1]){
-                        function pauseAudio() {
-                        journey.pause(); weezer.pause();queen.pause(); acdc.pause(); chicago.pause();beatles.pause(); kiss.pause(); poison.pause(); eagles.pause(); cars.pause();
-                        } 
+                        
                         pauseAudio()
-
-                        function playAudio() { 
-                        weezer.play(); 
-                        } 
-                        playAudio()
+                        playAudio(weezer)
                        
                         function ReplacingImage(){
                         document.getElementById("bandinsertphoto").src="assets/images/weezer1.jpg"
@@ -211,15 +227,9 @@
                         bandbioText.textContent = "Weezer -  \"Undone\"";
                 }
                 if (initialWord.join('') === bandNames[2]){
-                        function pauseAudio() {
-                        journey.pause(); weezer.pause();queen.pause(); acdc.pause(); chicago.pause();beatles.pause(); kiss.pause(); poison.pause(); eagles.pause(); cars.pause();
-                        } 
-                        pauseAudio()
-
-                        function playAudio() { 
-                        queen.play(); 
-                        } 
-                        playAudio()
+                      
+                        pauseAudio() 
+                        playAudio(queen)
                        
                         function ReplacingImage(){
                         document.getElementById("bandinsertphoto").src="assets/images/queen1.jpg"
@@ -230,15 +240,9 @@
                         bandbioText.textContent = "Queen -  \"We Will Rock You\"";
                 }
                 if (initialWord.join('') === bandNames[3]){
-                        function pauseAudio() {
-                        journey.pause(); weezer.pause();queen.pause(); acdc.pause(); chicago.pause();beatles.pause(); kiss.pause(); poison.pause(); eagles.pause(); cars.pause();
-                        } 
-                        pauseAudio()
-
-                        function playAudio() { 
-                        acdc.play(); 
-                        } 
-                        playAudio()
+                      
+                        pauseAudio() 
+                        playAudio(acdc)
                        
                         function ReplacingImage(){
                         document.getElementById("bandinsertphoto").src="assets/images/acdc1.jpg"
@@ -249,15 +253,9 @@
                         bandbioText.textContent = "AC-DC -  \"Back in Black\"";
                 }
                 if (initialWord.join('') === bandNames[4]){
-                        function pauseAudio() {
-                        journey.pause(); weezer.pause();queen.pause(); acdc.pause(); chicago.pause();beatles.pause(); kiss.pause(); poison.pause(); eagles.pause(); cars.pause();
-                        } 
+                       
                         pauseAudio()
-
-                        function playAudio() { 
-                        chicago.play(); 
-                        } 
-                        playAudio()
+                        playAudio(chicago)
                        
                         function ReplacingImage(){
                         document.getElementById("bandinsertphoto").src="assets/images/chicago1.jpg"
@@ -268,15 +266,9 @@
                         bandbioText.textContent = "Chicago -  \"Stay The Night\"";
                 }
                 if (initialWord.join('') === bandNames[5]){
-                        function pauseAudio() {
-                        journey.pause(); weezer.pause();queen.pause(); acdc.pause(); chicago.pause();beatles.pause(); kiss.pause(); poison.pause(); eagles.pause(); cars.pause();
-                        } 
-                        pauseAudio()
-
-                        function playAudio() { 
-                        beatles.play(); 
-                        } 
-                        playAudio()
+                       
+                        pauseAudio() 
+                        playAudio(beatles)
                        
                         function ReplacingImage(){
                         document.getElementById("bandinsertphoto").src="assets/images/beatles1.jpg"
@@ -287,15 +279,9 @@
                         bandbioText.textContent = "Beatles -  \"Come Together\"";
                 }
                 if (initialWord.join('') === bandNames[6]){
-                        function pauseAudio() {
-                        journey.pause(); weezer.pause();queen.pause(); acdc.pause(); chicago.pause();beatles.pause(); kiss.pause(); poison.pause(); eagles.pause(); cars.pause();
-                        } 
+                       
                         pauseAudio()
-
-                        function playAudio() { 
-                        kiss.play(); 
-                        } 
-                        playAudio()
+                        playAudio(kiss)
                        
                         function ReplacingImage(){
                         document.getElementById("bandinsertphoto").src="assets/images/kiss1.jpg"
@@ -306,15 +292,9 @@
                         bandbioText.textContent = "Kiss -  \"Rock and Roll All Nite\"";
                 }
                 if (initialWord.join('') === bandNames[7]){
-                        function pauseAudio() {
-                        journey.pause(); weezer.pause();queen.pause(); acdc.pause(); chicago.pause();beatles.pause(); kiss.pause(); poison.pause(); eagles.pause(); cars.pause();
-                        } 
+                         
                         pauseAudio()
-
-                        function playAudio() { 
-                        poison.play(); 
-                        } 
-                        playAudio()
+                        playAudio(poison)
                        
                         function ReplacingImage(){
                         document.getElementById("bandinsertphoto").src="assets/images/poison1.jpg"
@@ -325,15 +305,9 @@
                         bandbioText.textContent = "Poison -  \"Nothing But a Good Time\"";
                 }
                 if (initialWord.join('') === bandNames[8]){
-                        function pauseAudio() {
-                        journey.pause(); weezer.pause();queen.pause(); acdc.pause(); chicago.pause();beatles.pause(); kiss.pause(); poison.pause(); eagles.pause(); cars.pause();
-                        } 
-                        pauseAudio()  
-
-                        function playAudio() { 
-                        cars.play(); 
-                        } 
-                        playAudio()
+                        
+                        pauseAudio() 
+                        playAudio(cars)
                        
                         function ReplacingImage(){
                         document.getElementById("bandinsertphoto").src="assets/images/cars1.jpg"
@@ -344,15 +318,9 @@
                         bandbioText.textContent = "The Cars -  \"Just What I Needed\"";
                 }
                 if (initialWord.join('') === bandNames[9]){
-                    function pauseAudio() {
-                        journey.pause(); weezer.pause();queen.pause(); acdc.pause(); chicago.pause();beatles.pause(); kiss.pause(); poison.pause(); eagles.pause(); cars.pause();
-                        } 
+                   
                         pauseAudio()
-
-                        function playAudio() { 
-                        eagles.play(); 
-                        } 
-                        playAudio()
+                        playAudio(eagles)
                        
                         function ReplacingImage(){
                         document.getElementById("bandinsertphoto").src="assets/images/eagles1.jpg"
