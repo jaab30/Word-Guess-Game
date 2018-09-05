@@ -10,7 +10,7 @@ The game calculates the "Wins" (when the word is guessed correctly), "Guesses re
 
 I made a for loop to be able to check for the answers by checking for the position of the character method charAt().
 
-When the user guesses the correct band, a picture of the band comes up and a song from the band start to play. Also, text with the band name a name of the song is inserted below the band picture.
+When the user guesses the correct band, a picture of the band comes up and a song from the band start to play. Also, text with the band name and the name of the song is inserted below the band picture.
 
 When user missed 12 times, user gets an alert to re-start the game or quit.
 
