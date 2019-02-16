@@ -16,6 +16,8 @@ When user missed 12 times, user gets an alert to re-start the game or quit.
 
 When user guess all 10 bands correctly, user gets an alert to re-start the game or quit.
 
+https://jaab30.github.io/Word-Guess-Game/
+
 Enjoy...!
 
 
